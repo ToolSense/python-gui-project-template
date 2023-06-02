@@ -55,4 +55,5 @@ ensure_newline_before_comments = true
 line_length = 120
 
 [tool.yapf]
+BLANK_LINES_BETWEEN_TOP_LEVEL_IMPORTS_AND_VARIABLES = 2
 based_on_style = "pep8"
