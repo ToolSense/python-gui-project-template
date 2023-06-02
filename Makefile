@@ -7,12 +7,8 @@ PYTHON=${RUN} python
 all:
 	@echo "make dev"
 	@echo "    Create development environment."
-	@echo "make lint"
-	@echo "    Run lint on project."
-	@echo "make check_style"
-	@echo "    Check code-style"
 	@echo "make style"
-	@echo "    Reformat the code to match the style"
+	@echo "    Run lint on project."
 	@echo "make check"
 	@echo "    Check code-style, run linters, run tests"
 	@echo "make coverage"
@@ -27,24 +23,17 @@ all:
 dev:
 	poetry install --with dev
 
-check_style:
-	${PYTHON} -m isort --check --diff .
-	${PYTHON} -m black --check --diff .
-
-style:
-	${PYTHON} -m black .
-
 coverage:
 	${RUN} coverage run manage.py test
 	${RUN} coverage report -m
 
-lint:
-	${RUN} flake8
-
-check: check_style lint test
+style:
+	${RUN} pre-commit run --all-files
 
 test:
 	${PYTHON} -m unittest
+
+check: style test
 
 run: dev
 	${PYTHON} main.py
