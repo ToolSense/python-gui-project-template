@@ -2,8 +2,8 @@
 line-length = 120
 exclude = '''
 /(
-  | migrations
-  | venv
+  | .venv
+  | ui
 )/
 '''
 
