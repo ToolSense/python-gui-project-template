@@ -33,7 +33,7 @@ style:
 test:
 	${PYTHON} -m unittest
 
-check: style test
+check: dev style test
 
 run: dev
 	${PYTHON} main.py
