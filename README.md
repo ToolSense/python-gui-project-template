@@ -1,5 +1,5 @@
 # Python project template
-No matter what kind of project you plan to do (Django/Flask web app or pure-python CLI tool) the Python project template brings you the best practices in code style, code quality, and automation.  
+No matter what kind of project you plan to do (Django/Flask web app or pure-python CLI tool) the Python project template brings you the best practices in code style, code quality, and automation.
 Enjoy the development of your new project :beach_umbrella:
 
 ## Features
@@ -11,19 +11,19 @@ Enjoy the development of your new project :beach_umbrella:
   * Unit testing
   * Coverage checking
   * Docker Compose up/down
-  * Running the app  
+  * Running the app
   * Cleaning up workdir
 * GitHub Actions workflow
 * Dockerfile & docker-compose
 
 ## Pre-requirements
 * It's usually good idea to use [pyenv](https://github.com/pyenv/pyenv)
-* [Poetry](https://github.com/python-poetry/poetry) version **1.2.0** or higher 
+* [Poetry](https://github.com/python-poetry/poetry) version **1.2.0** or higher
 
 ## Usage
 * Use the repo as a GitHub template OR:
   * Clone the repo.
-  * Change git origin to your new git repo. 
+  * Change git origin to your new git repo.
 * Run `make` for the help message.
 
 For example `make check` will do:
@@ -36,11 +36,12 @@ For example `make check` will do:
 * run `mypy`
 * run unit tests
 
-GitHub Actions use the same (`make check`) command to check pull requests 
+GitHub Actions use the same (`make check`) command to check pull requests
+
+### Pre-commit hooks
+Install pre-commit hooks with `poetry run pre-commit install` command.
 
 ## ToDo
-
-* Pre-commit hook
 
 # GUI Design Guide
 ## Documentation

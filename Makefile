@@ -53,4 +53,3 @@ clean:
 	poetry env list | awk '{print $$1}' | xargs -I {} poetry env remove {}
 	find . -name '*.pyc' -delete
 	rm -rf *.eggs *.egg-info dist build docs/_build .cache .mypy_cache
-

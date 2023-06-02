@@ -11,4 +11,4 @@ class Presenter:
 
     @staticmethod
     def button_press_callback() -> None:
-        print("Button is Pressed!")
+        print('Button is Pressed!')

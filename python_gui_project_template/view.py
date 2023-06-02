@@ -8,7 +8,6 @@ from python_gui_project_template.ui.main_window_ui import Ui_MainWindow
 
 class View(QMainWindow):
     """Class handling the main window of the app."""
-
     def __init__(self) -> None:
         """Initializer of the graphical interface.
 
@@ -21,7 +20,7 @@ class View(QMainWindow):
             model (Model): _description_
         """
         super().__init__()
-        print("Setting up UI")
+        print('Setting up UI')
 
         # self.ui: Ui_MainWindow = get_ui_from_file()
         self.ui = Ui_MainWindow()
