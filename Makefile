@@ -30,10 +30,13 @@ coverage:
 style:
 	${RUN} pre-commit run --all-files
 
+typing:
+	${RUN} mypy .
+
 test:
 	${PYTHON} -m unittest
 
-check: dev style test
+check: dev style typing test
 
 run: dev
 	${PYTHON} main.py
