@@ -7,14 +7,8 @@ PYTHON=${RUN} python
 all:
 	@echo "make dev"
 	@echo "    Create development environment."
-	@echo "make ci"
-	@echo "    Create ci environment."
-	@echo "make lint"
-	@echo "    Run lint on project."
-	@echo "make check_style"
-	@echo "    Check code-style"
 	@echo "make style"
-	@echo "    Reformat the code to match the style"
+	@echo "    Run lint on project."
 	@echo "make check"
 	@echo "    Check code-style, run linters, run tests"
 	@echo "make coverage"
@@ -26,31 +20,23 @@ all:
 	@echo "make clean"
 	@echo "    Remove python artifacts and virtualenv"
 
-dev: ci
+dev:
 	poetry install --with dev
 
-ci:
-	poetry install --with ci
-
-lint: ci
-	${RUN} prospector --with-tool mypy --with-tool bandit
-
-check_style: ci
-	${PYTHON} -m isort --check --diff .
-	${PYTHON} -m black --check --diff .
-
-style: ci
-	${PYTHON} -m isort .
-	${PYTHON} -m black .
-
-coverage: ci
+coverage:
 	${RUN} coverage run manage.py test
 	${RUN} coverage report -m
 
-check: check_style lint test
+style:
+	${RUN} pre-commit run --all-files
 
-test: ci
+typing:
+	${RUN} mypy .
+
+test:
 	${PYTHON} -m unittest
+
+check: dev style typing test
 
 run: dev
 	${PYTHON} main.py
@@ -59,4 +45,3 @@ clean:
 	poetry env list | awk '{print $$1}' | xargs -I {} poetry env remove {}
 	find . -name '*.pyc' -delete
 	rm -rf *.eggs *.egg-info dist build docs/_build .cache .mypy_cache
-

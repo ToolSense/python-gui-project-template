@@ -1,23 +1,3 @@
-[tool.black]
-line-length = 120
-exclude = '''
-/(
-  | migrations
-  | venv
-)/
-'''
-
-[tool.isort]
-profile = "black"
-lines_after_imports = 2
-skip = [".gitignore", ".dockerignore", "migrations", "venv"]
-multi_line_output = 3
-include_trailing_comma = true
-force_grid_wrap = 0
-use_parentheses = true
-ensure_newline_before_comments = true
-line_length = 120
-
 [tool.poetry]
 name = "python_gui_project_template"
 version = "0.1.0"
@@ -28,27 +8,14 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "3.11.*"
-result = "^0.8.0"
 pyside6 = "^6.5.0"
 
 [tool.poetry.group.dev]
 optional = true
 
 [tool.poetry.group.dev.dependencies]
-ipython = "^8.6.0"
-mypy = "^1.2.0"
-black = "^23.3.0"
-
-[tool.poetry.group.ci]
-optional = true
-
-[tool.poetry.group.ci.dependencies]
-isort = "^5.10.1"
-coverage = "^6.5.0"
-prospector = {extras = ["with_bandit", "with_mypy"], version = "^1.7.7"}
-pbr = "^5.11.0"  # bandit dep
-stevedore = "^3.5.2"  # bandit dep
-wrapt = "^1.14.1"  # bandit dep
+mypy = "^1.3.0"
+pre-commit = "^3.3.2"
 
 [build-system]
 requires = ["poetry-core"]
@@ -63,3 +30,18 @@ warn_return_any = true
 warn_unused_ignores = true
 show_error_codes = true
 exclude = ['python_gui_project_template/ui']
+
+[tool.isort]
+profile = "black"
+lines_after_imports = 2
+skip = [".gitignore", ".dockerignore", "migrations", ".venv", "main_window_ui.py"]
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+ensure_newline_before_comments = true
+line_length = 120
+
+[tool.yapf]
+blank_lines_between_top_level_imports_and_variables = 2
+based_on_style = "pep8"
