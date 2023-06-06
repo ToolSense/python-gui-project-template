@@ -26,5 +26,9 @@ jobs:
         with:
           poetry-version: 1.5.1
 
+      - name: Install dependencies
+        run: |
+          sudo apt update && sudo apt install -y libegl1-mesa-dev
+
       - name: Check style, Linters, Tests
         run: make check
